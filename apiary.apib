@@ -1,0 +1,57 @@
+FORMAT: 1A
+HOST: https://skoda-testing.ixperta.com/api/auth_code
+
+# Authorization code based on user credentials
+
+This POST request returns authorization code. It is based on filled email and password in request body. Use only in POSTMAN.
+
+## setTokens - user [/questions]
+
+## My message [/message/{client_id,live}]
+
++ Parameters
+    + client_id - mandatory parameter, default value is OCU3
+    + live - True or False
+
+### Ask for authorization tokens [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Atributes
+    + email (string) - user e-mail
+    + password (string) - user's password
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Basic c2tvZGE6Q29ubmVjdGVkY2FyMQ==
+            Host: skoda-testing.ixperta.com
+
+    + Body
+
+            {
+                "email": "approval-jenkins@seznam.cz",
+                "password": "Connectedcar1"
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+    
+            Server: nginx/1.10.3
+            Connection: keep-alive
+
+    + Body
+
+            {
+                "access_token": "eyJraWQiOiJmYTU2NDJlMzY1Njg1NzIxIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhNzU0MDQ3ZC0wYmYxLTQ1ODctYjFiNy1hYmI3NjMyMWU1NWMiLCJhdWQiOiJlMTI5ZTU4NS1lZmE1LTQ3NDItYjI1NC1kZjNlNGE3YzJlY2JAYXBwc192dy1kaWxhYl9jb20iLCJzY3AiOiJvcGVuaWQgcHJvZmlsZSBwaG9uZSBhZGRyZXNzIGNhcnMgZW1haWwgYmlydGhkYXRlIGJhZGdlIGRlYWxlcnMgZHJpdmVyc0xpY2Vuc2UgbWJiIiwiYWF0IjoiaWRlbnRpdHlraXQiLCJpc3MiOiJodHRwczpcL1wvaWRlbnRpdHktc2FuZGJveC52d2dyb3VwLmlvIiwianR0IjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNTczMDMxMzg4LCJpYXQiOjE1NzMwMjc3ODgsImxlZSI6WyJTS09EQSJdLCJqdGkiOiIzMDNmNTY2MC00OTJjLTRkYjMtOWUwNC1hZDU0MWY2NzQzMjUifQ.GLmI8d4ZTpVhJPXnygN0qHjcQNvYK7cm7YJ9qAfOuhporPqp6Bejbdswuia8EYnONQd4O8dfJiB8HeCcIxtmmnwld6UjTk_cVP-2CBHfcAjf3bR75GSxo7_mP_uCnlclBqe3fdfOaEZe6hvc2DVXlPU-ZaDuPljrrogd-7dvJBGvrKT2O8nSOt3T6Z1fl6xtk94mtao6zs-7k6CZgJgsD-ZxP3fRWKY9o-hwRyncyoqcep2YNfJIPkOCvx26Kzje6aGiJRE8hWt7ZsxUrnCWj5uclcEwRXesgJ8IxfyY3qAxTJEKUx75LKux7qPP4dQCPgvYWJa378nheuEbGaWez2TrVfMQ_gfJgpEgiE1rz-r-4tkXJEVsvHS8Da_y5PPmkuPxZ4u2WsOIEM3NAJJCB8kffznRXGuDiVICR4FxmmT9MoGkndH2dQ2P9XmiHv7PZnxxVMbI-NHgQ0XylyRc6nQnzIYWYbjKfKFeewc3yAa7SiHRaSfNKJeqqfaUPetq9Ug_EDsoWofFCA5i90oAs-qrsQioEPU8rScEKIVg8frg8SexFH_o1vMK5yU30hPu21RGprInCybMGVxpe_X9Vr_mgVL8mNcoW0ScutTRg1RYLw8_7Y7hpDj_Z25iaCIBXPK0od0JBXmMXjogmbzJhXugCODeVBCs3yWxkvqocg8",
+                "auth_code": "eyJraWQiOiJmYTU2NDJlMzY1Njg1NzIxIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhNzU0MDQ3ZC0wYmYxLTQ1ODctYjFiNy1hYmI3NjMyMWU1NWMiLCJhdWQiOiJlMTI5ZTU4NS1lZmE1LTQ3NDItYjI1NC1kZjNlNGE3YzJlY2JAYXBwc192dy1kaWxhYl9jb20iLCJhY3IiOiJodHRwczpcL1wvaWRlbnRpdHktc2FuZGJveC52d2dyb3VwLmlvXC9hc3N1cmFuY2VcL2xvYS0yIiwic2NwIjoib3BlbmlkIHByb2ZpbGUgcGhvbmUgYWRkcmVzcyBjYXJzIGVtYWlsIGJpcnRoZGF0ZSBiYWRnZSBkZWFsZXJzIGRyaXZlcnNMaWNlbnNlIG1iYiIsImFhdCI6ImlkZW50aXR5a2l0IiwiaXNzIjoiaHR0cHM6XC9cL2lkZW50aXR5LXNhbmRib3gudndncm91cC5pbyIsImp0dCI6ImF1dGhvcml6YXRpb25fY29kZSIsImV4cCI6MTU3MzAyODA4OCwiaWF0IjoxNTczMDI3Nzg4LCJub25jZSI6ImVkNDFhZTU2LTVkMmItNDc2ZC05ZGQxLWNlM2ZmYmFhYWM1ZSIsImp0aSI6IjRjNjg1OTc1LTQ5OWEtNDkyMy04YmJmLWI4ODQwZThkNGQxYyJ9.UnNRK7AdVwwP2zf9T8hlPgkLgT8nGFNMcYh1rTAFnkCP3Wgz8KD6eUNgPs4nIIyDuDmYKfL_fQ5PLC13iPecorf6C_nMeXbBAbqzvgcXrUT9548yDGvA97Cue7t0kugf9vWZes-lzBtseZQ33P1ARwFRrzCXPT-3mauZPD1LXJ0rKBo7IxQxTbnsgMmt6TFlhhnrPbkEqJ0iRIyYH4FnfVQXsC6My8Ojtl0O9J0CH0ntbMNZt7IzVHhf7i4pczAZc5ud14Mu9Vys8lZ2Q6ouvE3FAFTSQo-YJM1yzyZ80Sx5zd0R5LC-RUqlKG5UEUDyF56Peoel83lxGjHXAEaJ_kCgbIj_RsNXDwxV4dnF44mtTODrni_N_h2GzDOJhXhbUoAp2bAsd64mMQxJny_Km3IzYeachIwZVtEWpVzrDbIEcNTuSoT_Gqx3bz6kQl_NyvlWRxF9wsAVxYEEBZ3VxPMIVaANkz9Q-cHgHp1PfbfkvcVyt-_HOmIflemRrmItJYuG1cURzy5frDA9PGXODUgA2YpiAbCwiSSpo3ek0TCrvO5jVJ0rJGT8OAMibpY5ErQ4zyPbD5q4XEWeORihkcu_Nx_pUzC1uJtBPkD0ZY5zR1flGmHNVk4jRG6UgWAjiNz5_YrUE_xhDYcjBbU3m96uWvpifCw3kFxYMGuS0RA",
+                "carNetId": "SE00XD0",
+                "cor": "CZ",
+                "id_token": "eyJraWQiOiJmYTU2NDJlMzY1Njg1NzIxIiwiYWxnIjoiUlMyNTYifQ.eyJhdF9oYXNoIjoiODFMUHlBRklGVWJldmVyY3ptQlZyUSIsInN1YiI6ImE3NTQwNDdkLTBiZjEtNDU4Ny1iMWI3LWFiYjc2MzIxZTU1YyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJjb3IiOiJDWiIsImlzcyI6Imh0dHBzOlwvXC9pZGVudGl0eS1zYW5kYm94LnZ3Z3JvdXAuaW8iLCJqdHQiOiJpZF90b2tlbiIsInR5cGUiOiJpZGVudGl0eSIsIm5vbmNlIjoiZWQ0MWFlNTYtNWQyYi00NzZkLTlkZDEtY2UzZmZiYWFhYzVlIiwibGVlIjpbIlNLT0RBIl0sImF1ZCI6WyJlMTI5ZTU4NS1lZmE1LTQ3NDItYjI1NC1kZjNlNGE3YzJlY2JAYXBwc192dy1kaWxhYl9jb20iLCJWV0dNQkIwMURFVFVJMSIsIlZXR01CQjAxREVUVUkyIiwiVldHTUJCMDFERVRVSTMiLCJWV0dNQkIwMURFQVBQMSIsIlZXR01CQjAxREVQUkUxIiwiVldHTUJCMDFDTlRVSTEiXSwiYWNyIjoiaHR0cHM6XC9cL2lkZW50aXR5LXNhbmRib3gudndncm91cC5pb1wvYXNzdXJhbmNlXC9sb2EtMiIsImNfaGFzaCI6Ijl4WTcyWjFVa1FJMkZwamhNSHJDakEiLCJ1cGRhdGVkX2F0IjoxNTYyMDcyMTM3ODY5LCJhYXQiOiJpZGVudGl0eWtpdCIsImV4cCI6MTU3MzAzMTM4OCwiaWF0IjoxNTczMDI3Nzg4LCJqdGkiOiIwOGRlNWI0Yi1kNzE1LTQ2NjYtYjgyNi02MzM0NGI5OTc4NWQiLCJlbWFpbCI6ImFwcHJvdmFsLWplbmtpbnNAc2V6bmFtLmN6In0.EH-0tCR_v-4CNWdMxGE4S2BuZzdieqZWWg0PmmDWGISQF1jZBRvxVFUWdKjrKiDEKLgg6SEc-fm-0lodDZER6X8_bfWbRJYeDOPnsdUIOJWpzmupxJgoJcFEawI_2QnBEC580FV7-xdKpOYXKrCKCpAWwvX3qso7W_JWrm0GROEM0wJvSpTSNl8omsGrk2K0ybSQjFdHDaMb5UdeXH6Iu8KU3exVjn_Aolqblsx9zvRzUdjPo7C0hvHF-dVHVO5i5hdP_fN9xygG5AeLO5tv9PmgMiUBHkl4GLKY9M-Os1xCT2b1WTMOypS77iV7VdZIgGQzSHKzTVdMtQqvIXtZ9jfNsA6U-gc08E1MjYzDlMcdRDFYhchaGiGytlQuUiUfNDwscMIl32T2sFa3JwXnoDQY_py5FDDQPGvI4dzfxWNsTU77AtjUCovPkfQzHTd7KPGjfAZXdn98FlOuA-r3edKErnxQrzlQ995GOGthSuRQYEIhEYK7K-xxIr_jSP90FsAdkiAdA-OTbt0-7VObF1K2gjhFtO5DMhl69H92c5b7-3quYKKrtyms-VVICIKttX19h-reSu1D_2N_FFvUNZnky_3V6g0sybcpqJ5FOiALxnRtZ6WLY61W2QVu6t4_7W_GwvOlj3rwAqCIvLhbKCTA_d3nUKV6FQ-yh70Zf0Q",
+                "mbb_id": "h97LEIgLX6coO0KWAuJxBydfCqG",
+                "sso_id": "a754047d-0bf1-4587-b1b7-abb76321e55c"
+            }
